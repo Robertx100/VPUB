@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-[70vh] flex items-center justify-center px-4 py-16">
+  <div class="text-center max-w-md mx-auto space-y-6">
+    <div class="inline-block p-4 rounded-2xl bg-parchment-200 dark:bg-darkbg-800 border border-parchment-300 dark:border-darkbg-700 shadow-sm">
+      <img src="/static/img/vpub-mascot.jpg" alt="vpub mascot" class="w-24 h-24 rounded-xl object-cover mx-auto">
+    </div>
+    <div class="space-y-2">
+      <span class="text-xs font-mono font-semibold uppercase tracking-widest text-amber-600 dark:text-amber-400">Error {{ error_code | default(500) }}</span>
+      <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-[#2C2C2C] dark:text-parchment-100">Something went wrong</h1>
+      <p class="text-stone-600 dark:text-stone-400 text-sm">
+        We encountered an unexpected issue while reading this chapter. Our team has been notified.
+      </p>
+    </div>
+    <div>
+      <a href="/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-sage-600 hover:bg-sage-700 text-white font-medium text-sm transition-all shadow-sm">
+        Return to Home
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+/* Custom CSS & Design Tokens for vpublication (vpub) */
+
+:root {
+  --color-primary: #5B8C3E;
+  --color-primary-dark: #3D6B2E;
+  --color-primary-light: #A8D48C;
+  --color-surface: #FAF8F2;
+  --color-surface-alt: #F0EDE4;
+  --color-text: #2C2C2C;
+  --color-text-muted: #6B6B6B;
+  --color-accent: #D4A843;
+  --color-border: #D9D4C8;
+}
+
+.dark {
+  --color-primary: #7DB85A;
+  --color-primary-dark: #5B8C3E;
+  --color-primary-light: #2D4A20;
+  --color-surface: #121512;
+  --color-surface-alt: #1A1D1A;
+  --color-text: #F0EDE4;
+  --color-text-muted: #9E9E9E;
+  --color-accent: #E8C060;
+  --color-border: #2D332D;
+}
+
+/* HTMX Loading Indicator */
+.htmx-indicator {
+  display: none;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+.htmx-request .htmx-indicator,
+.htmx-request.htmx-indicator {
+  display: inline-flex;
+  opacity: 1;
+}
+
+/* 3D Book Visual */
+.book-stage {
+  perspective: 1000px;
+}
+
+.book-card {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.book-card:hover {
+  transform: rotateY(-8deg) rotateX(4deg) translateY(-6px);
+}
+
+@keyframes floatMascot {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: floatMascot 4s ease-in-out infinite;
+}
+
+/* Page Flip Mockup for Live Demo */
+.page-sheet {
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* Custom Scrollbar for demo boxes */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .book-card:hover {
+    transform: none !important;
+  }
+  .animate-float {
+    animation: none !important;
+  }
+}

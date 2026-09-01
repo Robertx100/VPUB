@@ -1,0 +1,1 @@
+"""vpublication application package."""

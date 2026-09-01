@@ -1,0 +1,79 @@
+# Tasks — vpublication (vpub)
+
+- [x] **Project Setup**
+    - [x] Create `app/` directory structure
+    - [x] Initialize FastAPI app (`main.py`)
+    - [x] Add `requirements.txt` (`fastapi`, `uvicorn`, `jinja2`, `python-dotenv`, `python-multipart`)
+    - [x] Add `.env` for secrets — never commit to repo
+    - [x] Add `.gitignore` (`.env`, `__pycache__`, `.venv`, `data/subscribers.json`)
+    - [x] Verify dev server runs (`uvicorn app.main:app --reload`)
+- [x] **Base Template & Theming**
+    - [x] Create `base.html` with Tailwind CDN + HTMX CDN
+    - [x] Set up shared `<head>`, design tokens (CSS custom properties), font imports (DM Sans, JetBrains Mono)
+    - [x] Add HTMX config (`hx-post`, `hx-swap`, indicator spinner)
+    - [x] Dark/light mode toggle (sun/moon icon in nav, `localStorage` persistence, zero flicker)
+- [x] **Landing Page (single responsive template)**
+    - [x] Create `index.html` extending base
+    - [x] Hero — large headline, sub-copy, CTA button; stacked on mobile, side-by-side on desktop
+    - [x] Animated book visual (CSS 3D perspective + mascot artwork, respects `prefers-reduced-motion`)
+    - [x] Problem — comparison cards; side-by-side `md:grid-cols-2`, stacked on mobile
+    - [x] Workflow (How It Works) — 3-step flow; horizontal on desktop, vertical on mobile
+    - [x] Live Preview — embedded interactive simulation slider with dynamic retention graphs
+    - [x] Features — 4 capability cards in responsive grid
+    - [x] Social Proof — omit placeholder until real testimonials are ready
+    - [x] CTA — full-width email capture with instant HTMX feedback
+    - [x] Footer — links, copyright; multi-column on desktop, stacked on mobile
+- [x] **Styling & Polish**
+    - [x] Color palette & design tokens (sage green, warm cream, gold accent)
+    - [x] Typography scale (DM Sans, JetBrains Mono)
+    - [x] Hover / focus / active states on all interactive elements
+    - [x] `prefers-reduced-motion: reduce` — disables all transforms & animations
+    - [x] Dark mode full implementation across all components
+- [ ] **SEO & Meta Enhancements**
+    - [x] `<title>` and `<meta name="description">` on every route
+    - [x] Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`)
+    - [x] Twitter Card meta (`twitter:card`, `twitter:title`, `twitter:image`)
+    - [ ] Canonical URL (`<link rel="canonical">`)
+    - [ ] Structured data (JSON-LD — SoftwareApplication schema)
+    - [ ] `robots.txt` and `sitemap.xml`
+    - [x] Semantic HTML (`<header>`, `<main>`, `<section>`, `<article>`, `<nav>`, `<footer>`)
+- [ ] **Accessibility (a11y)**
+    - [x] Logical heading hierarchy (`h1` → `h2` → `h3`, no skips)
+    - [x] Alt text on all images
+    - [x] Focus-visible outlines on all interactive elements
+    - [x] `aria-label` on icon-only buttons (theme toggle) and nav landmarks
+    - [x] Skip-to-content link
+    - [x] Color contrast ≥ 4.5:1 (AA) across light & dark modes
+    - [x] Form inputs have associated `<label>` elements
+    - [x] `prefers-reduced-motion` respected
+- [ ] **Performance**
+    - [ ] Self-host Tailwind (build step) and HTMX instead of CDN in production
+    - [ ] Lazy-load images below the fold (`loading="lazy"`)
+    - [ ] Preload hero image / critical font (`<link rel="preload">`)
+    - [ ] Minimize render-blocking resources
+    - [ ] Lighthouse audit target: ≥ 90 on Performance, Accessibility, SEO
+- [x] **Security**
+    - [x] Input validation & sanitization — server-side email validation with regex
+    - [x] Security headers middleware:
+        - [x] `X-Content-Type-Options: nosniff`
+        - [x] `X-Frame-Options: SAMEORIGIN`
+        - [x] `Referrer-Policy: strict-origin-when-cross-origin`
+        - [x] `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+        - [ ] Full CSP configuration
+    - [x] Environment secrets in `.env`, never in source
+    - [x] Email capture hardening:
+        - [x] Honeypot field (hidden input bots fill, humans don't)
+        - [x] Server-side duplicate check
+        - [x] Safe error messaging without info leak
+    - [x] Custom 404 and 500 pages with branded error templates
+- [ ] **Analytics**
+    - [ ] Add privacy-respecting analytics placeholder (Plausible / custom event logger)
+    - [ ] Track: page views, CTA clicks, email form submissions, scroll depth
+- [x] **Integration & Testing**
+    - [x] Automated test suite in `tests/test_app.py`
+    - [x] Form submission happy path test (valid email → JSON saved & HTMX partial rendered)
+    - [x] Form submission duplicate email handling test
+    - [x] Form submission error state test (invalid email → 400 Bad Request)
+    - [x] Honeypot bot prevention test
+    - [x] 404 page render test
+    - [ ] Cross-browser testing on live devices

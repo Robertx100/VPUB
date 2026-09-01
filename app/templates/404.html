@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-[70vh] flex items-center justify-center px-4 py-16">
+  <div class="text-center max-w-md mx-auto space-y-6">
+    <div class="inline-block p-4 rounded-2xl bg-parchment-200 dark:bg-darkbg-800 border border-parchment-300 dark:border-darkbg-700 shadow-sm">
+      <img src="/static/img/vpub-mascot.jpg" alt="vpub mascot looking curious" class="w-24 h-24 rounded-xl object-cover mx-auto">
+    </div>
+    <div class="space-y-2">
+      <span class="text-xs font-mono font-semibold uppercase tracking-widest text-sage-600 dark:text-sage-400">404 Error</span>
+      <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-[#2C2C2C] dark:text-parchment-100">Page not found</h1>
+      <p class="text-stone-600 dark:text-stone-400 text-sm">
+        This page seems to be missing from the book. Let's get you back to the beginning.
+      </p>
+    </div>
+    <div>
+      <a href="/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-sage-600 hover:bg-sage-700 text-white font-medium text-sm transition-all shadow-sm">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Return to Home
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
